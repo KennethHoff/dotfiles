@@ -1,5 +1,5 @@
 # dotfiles
 
 ```sh
-wn -s <cloneRootDirectory> ~/.config/nvim
+ln -s <cloneRootDirectory> ~/.config/nvim
 ```
