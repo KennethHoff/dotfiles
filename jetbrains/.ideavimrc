@@ -3,29 +3,36 @@ let mapleader = " "
 
 "" Base Settings
 "" =======================================================
+""" "Scroll offset": Makes the cursor stay in the middle of the screen when scrolling, by making sure there are 7 lines above and below the cursor
+set scrolloff=7
 
-### "Number": Adds line numbers
+"" Plugins
+"" =======================================================
+
+""" "Number": Adds line numbers
 set number
-### "Relative Number": Makes the line numbers relative to the current line 
+""" "Relative Number": Makes the line numbers relative to the current line
 set relativenumber
-### "Incremental search": shows the search matches as you type 
+""" "Incremental search": shows the search matches as you type
 set incsearch
-### "Show mode": shows the current mode in the bottom right corner | Does not seem to work in Rider
+""" "Show mode": shows the current mode in the bottom right corner | Does not seem to work in Rider
 set showmode
-### "Show command": shows the command you are typing in the bottom left corner | Does not seem to work in Rider
+""" "Show command": shows the command you are typing in the bottom left corner | Does not seem to work in Rider
 set showcmd
-### "Ignore case": makes the search case insensitive
+""" "Ignore case": makes the search case insensitive
 set ignorecase
-### "Smart case": makes the search case sensitive if you use a capital letter
+""" "Smart case": makes the search case sensitive if you use a capital letter
 set smartcase
-### "Surround": Adds the ability to surround text with brackets, quotes, etc, by using the 's' key
+""" "Surround": Adds the ability to surround text with brackets, quotes, etc, by using the 's' key
 set surround
-### "Highlighted yank": Highlights the text that was yanked
+""" "Highlighted yank": Highlights the text that was yanked
 set highlightedyank
-### "Which key": Adds a popup with all the keybindings after pressing the leader key
+""" "Which key": Adds a popup with all the keybindings after pressing part of a keybinding (e.g. <leader>)
 set which-key
-### "Easy motion": Adds the ability to jump around the text with easymotion
+""" "Easy motion": Adds the ability to jump around the text with easymotion
 set easymotion
+""" "Nerd tree": Integration between vim and the integrated file explorer in JetBrains IDEs
+set nerdtree
 
 "" Plugin Settings
 "" ========================================================
@@ -92,15 +99,9 @@ let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
 let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
 let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
 
-let g:WhichKeyDesc_git = "<leader>g Git operations"
-let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
-let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
-let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
-
 let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
-
 
 let g:WhichKeyDesc_project = "<leader>p Project"
 let g:WhichKeyDesc_params_info = "<leader>pi Show Parameter Info"
@@ -128,9 +129,6 @@ nmap ]] <Action>(MethodDown)
 " Easy visual indentation
 vnoremap < <gv
 vnoremap > >gv
-
-" Execute macro saved in 'q' register
-nnoremap qj @q
 
 " Popup navigation
 imap <C-l> <Action>(EditorDown)
@@ -169,6 +167,7 @@ map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 map <leader>dd <action>(ToggleDistractionFreeMode)
 map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
+map <leader>fs <action>(NewScratchFile)
 
 " Actions
 map <leader>am <action>(ShowIntentionActions)
@@ -178,9 +177,7 @@ map <leader>as <action>(SearchEverywhere)
 map <leader>ff <action>(GotoFile)
 map <leader>fr <action>(RecentFiles)
 map <leader>fc <action>(FindInPath)
-map <leader><leader> <Action>(RecentFiles)
 map <leader>fl <action>(RecentLocations)
-map <leader>fs <action>(NewScratchFile)
 
 " Close active tab
 map <leader>q <action>(CloseContent)
@@ -203,11 +200,6 @@ nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gb <Action>(Back)
 nmap <leader>gf <Action>(Forward)
-
-" Git windows
-map <leader>gc <Action>(CheckinProject)
-map <leader>gs <Action>(ActivateVersionControlToolWindow)
-map <leader>gb <Action>(Git.Branches)
 
 " Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
