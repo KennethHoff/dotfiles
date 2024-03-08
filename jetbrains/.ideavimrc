@@ -25,6 +25,7 @@ set highlightedyank
 ### "Which key": Adds a popup with all the keybindings after pressing the leader key
 set which-key
 ### "Easy motion": Adds the ability to jump around the text with easymotion
+set easymotion
 
 "" Plugin Settings
 "" ========================================================
