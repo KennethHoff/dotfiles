@@ -78,12 +78,6 @@ return require('packer').startup(function(use)
     config = function() require('gitsigns').setup() end
   })
 
-  -- You can specify multiple plugins in a single call
-  use({
-	  'tjdevries/colorbuddy.vim', 
-	  {'nvim-treesitter/nvim-treesitter', opt = true}
-  })
-
   -- You can alias plugin names
   use({
 	  'dracula/vim',
@@ -97,11 +91,12 @@ use {
         require('Comment').setup()
     end
 }
+  -- Mason
+use {
+    "williamboman/mason.nvim"
+}
+
 
 -- TODO: Figure out how to add GitHub Copilot support.
 -- I managed to add it, but I couldn't get the keybindings to work.
-
-
-
-
 end)
