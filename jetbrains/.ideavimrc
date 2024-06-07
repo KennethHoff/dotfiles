@@ -56,6 +56,7 @@ let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
 let g:WhichKeyDesc_comment = "<leader>c Comment line"
 
 let g:WhichKeyDesc_fold = "<leader>z Folding"
+
 let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
 let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
 
@@ -64,7 +65,6 @@ let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
 let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
 let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
 let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
-
 
 let g:WhichKeyDesc_display = "<leader>d Display options"
 let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
@@ -107,33 +107,49 @@ let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
 let g:WhichKeyDesc_project = "<leader>p Project"
+let g:WhichKeyDesc_quickdocs = "<leader>pc Show Debug Configurations"
 let g:WhichKeyDesc_params_info = "<leader>pi Show Parameter Info"
+
+
+let g:WhichKeyDesc_unit_testing = "<leader>t Unit Testing"
+let g:WhichKeyDesc_unit_testing_quicklist = "<leader>tl Open Unit Test QuickList"
+let g:WhichKeyDesc_unit_testing_run_session = "<leader>tr Run all tests in current session"
+let g:WhichKeyDesc_unit_testing_open_tool_window = "<leader>to Open Unit Test Tool Window"
 
 
 "" Key mappings
 "" ========================================================
 
+"" General mappings
+" Make jk - in `Insert` mode - escape to `Normal` mode
 inoremap jk <Esc>
+" Make <C-d> - in `Normal` mode - also center the cursor
+nnoremap <C-d> zz<C-d>
+" Make <C-u> - in `Normal` mode - also center the cursor
+nnoremap <C-u> zz<C-u>
+" Make Y act more like C and D (yank to end of line)
+nnoremap Y y$
 
-" Tab navigation
+"" Tab navigation
 nnoremap <C-p> gt
 nnoremap <C-y> gT
 
-" Pane navigation
+"" Pane navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
-" Jump between methods
+"" Jump between methods
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
-" Easy visual indentation
+"" Easy visual indentation
 vnoremap < <gv
+
 vnoremap > >gv
 
-" Popup navigation
+"" Popup navigation
 imap <C-l> <Action>(EditorDown)
 imap <C-h> <Action>(EditorUp)
 
@@ -141,53 +157,61 @@ imap <C-h> <Action>(EditorUp)
 "" Leader commands
 "" ========================================================
 
-" Comment lines
+"" Comment lines
 map <leader>c <action>(CommentByLineComment)
 
-" Jump around with easymotion
+"" Jump around with easymotion
 map <leader>j <Plug>(easymotion-s)
 
-" Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
-
-" Folding
+"" Folding
 map <leader>zc :action CollapseAllRegions<CR>
 map <leader>zo :action ExpandAllRegions<CR>
 
-" Project
+"" Project
 map <leader>pi <action>(ParameterInfo)
 map <leader>pr <action>(Run)
 map <leader>pd <action>(Debug)
 map <leader>ps <action>(Stop)
+map <leader>pc <action>(ChooseDebugConfiguration)
 
-" Window splits
+"" Window splits
 map <leader>wv <Action>(SplitVertically)
 map <leader>ws <Action>(SplitHorizontally)
 map <leader>wu <Action>(Unsplit)
 map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 
-" Display options
+"" Display options
 map <leader>dd <action>(ToggleDistractionFreeMode)
 map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
 map <leader>fs <action>(NewScratchFile)
 
-" Actions
+"" Actions
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
-" File navigation
-map <leader>ff <action>(GotoFile)
-map <leader>fr <action>(RecentFiles)
-map <leader>fc <action>(FindInPath)
-map <leader>fl <action>(RecentLocations)
+"" File navigation
+" Show Current File in Solution Explorer
+map <leader>ff :NERDTreeFind<CR>
+" Open Solution Explorer
+map <leader>fo :NERDTree<CR>
+" Close Solution Explorer
+map <leader>fc :NERDTreeClose<CR>
 
 " Close active tab
 map <leader>q <action>(CloseContent)
-" Open quickdocs 
-map <leader>t <action>(QuickJavaDoc)
 
-" Refactoring
+"" Unit Testing
+" Open Unit Test QuickList
+map <leader>tl <action>(Rider.UnitTesting.QuickList)
+" Run all tests in current Session
+map <leader>tr <action>(RiderUnitTestRunCurrentSessionAction)
+" Open Unit Test Tool Window
+map <leader>to <action>(RiderUnitTestFocusSessionAction)
+" Rerun failed tests
+map <leader>tf <action>(RiderUnitTestRerunBrokenSplitAction)
+
+"" Refactoring
 map <leader>rn <Action>(RenameElement)
 map <leader>rm <Action>(ExtractMethod)
 map <leader>rv <Action>(IntroduceVariable)
@@ -195,7 +219,7 @@ map <leader>rf <Action>(IntroduceField)
 map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
-" Go to code
+"" Go to code
 nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
@@ -204,6 +228,6 @@ nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gb <Action>(Back)
 nmap <leader>gf <Action>(Forward)
 
-" Errors
+"" Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
