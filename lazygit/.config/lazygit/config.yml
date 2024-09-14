@@ -1,0 +1,16 @@
+gui:
+    showDivergenceFromBaseBranch: arrowAndNumber # or 'onlyArrow'
+    expandFocusedSidePanel: true
+    expandedSidePanelWeight: 2
+    nerdFontsVersion: 3
+    showFileIcons: true
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  autoRefresh: false
+  mainBranches:
+    - main
+    - master
+    - develop
