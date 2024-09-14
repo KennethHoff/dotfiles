@@ -1,4 +1,1 @@
-require('settings')
-require('plugins')
-require('lsp-config')
-
+require("config.lazy")
