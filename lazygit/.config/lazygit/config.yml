@@ -1,11 +1,14 @@
+disableStartupPopups: true
 gui:
-    showDivergenceFromBaseBranch: arrowAndNumber # or 'onlyArrow'
-    expandFocusedSidePanel: true
-    expandedSidePanelWeight: 2
-    nerdFontsVersion: 3
-    showFileIcons: true
+  showDivergenceFromBaseBranch: arrowAndNumber # or 'onlyArrow'
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 2
+  nerdFontsVersion: 3
+  showFileIcons: true
+  statusPanelView: allBranchesLog
 
 git:
+  parseEmoji: true
   paging:
     colorArg: always
     pager: delta --dark --paging=never
