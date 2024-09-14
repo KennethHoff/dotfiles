@@ -123,8 +123,6 @@ let g:WhichKeyDesc_unit_testing_open_tool_window = "<leader>to Open Unit Test To
 "" ========================================================
 
 "" General mappings
-" Make jk - in `Insert` mode - escape to `Normal` mode
-inoremap jk <Esc>
 " Make <C-d> - in `Normal` mode - also center the cursor
 nnoremap <C-d> zz<C-d>
 " Make <C-u> - in `Normal` mode - also center the cursor
