@@ -1,5 +1,6 @@
 return {
 				"nvim-telescope/telescope.nvim",
+				enabled = false, -- Testing out mini.pick
 				branch = '0.1.x',
 				dependencies = { 'nvim-lua/plenary.nvim' },
 				config = function()
