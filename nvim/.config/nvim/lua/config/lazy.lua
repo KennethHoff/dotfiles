@@ -59,6 +59,3 @@ local lsp_attach = function(client, bufnr)
 end
 
 
-vim.keymap.set('n', 's', '<cmd>Pounce<CR>')
-vim.keymap.set('n', 'S', '<cmd>PounceRepeat<CR>')
-
