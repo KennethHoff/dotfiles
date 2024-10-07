@@ -1,23 +1,12 @@
 return {
 				"williamboman/mason-lspconfig.nvim",
+				dependencies = {
+								"williamboman/mason.nvim"
+				},
 				config = function()
 								require("mason").setup()
 								require("mason-lspconfig").setup {
-												ensure_installed = { "lua_ls", "rust_analyzer" }
+												ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls" }
 								}
-
-								local lspconfig = require("lspconfig")
-
-								lspconfig.lua_ls.setup {
-												settings = {
-																Lua = {
-																				diagnostics = {
-																								globals = { "vim" },  -- Add any globals you want here
-																				},
-																},
-												},
-								}
-
-								lspconfig.zls.setup {}
 				end
 }
