@@ -6,6 +6,7 @@ return {
 				},
 				config = function()
 								local lsp_zero = require('lsp-zero')
+								local lspconfig = require('lspconfig')
 
 								-- lsp_attach is where you enable features that only work
 								-- if there is a language server active in the file
@@ -29,5 +30,7 @@ return {
 												lsp_attach = lsp_attach,
 												capabilities = require('cmp_nvim_lsp').default_capabilities(),
 								})
+
+								lspconfig.ts_ls.setup({})
 				end
 }
