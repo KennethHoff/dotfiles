@@ -3,7 +3,6 @@ return {
 				version = "*",
 				config = function()
 								require("mini.ai").setup()
-								require("mini.comment").setup()
 								require("mini.surround").setup()
 								require("mini.splitjoin").setup()
 				end
