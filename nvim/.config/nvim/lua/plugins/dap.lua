@@ -20,6 +20,31 @@ return {
 
 
 
+								dap.adapters.coreclr = {
+												type = 'executable',
+												command = 'dotnet'
+								}
+
+								dap.configurations.cs = {
+												{
+																type = 'coreclr',
+																name = 'Launch',
+																request = 'launch',
+																program = function()
+																				return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/net5.0/YourProgram.dll', 'file')
+																end,
+																args = {},
+																cwd = vim.fn.getcwd(),
+																stopAtEntry = false,
+												},
+												{
+																type = 'coreclr',
+																name = 'Attach',
+																request = 'attach',
+																processId = require('dap.utils').pick_process,
+																cwd = vim.fn.getcwd(),
+												},
+								}
 
 
 								dap.listeners.before.attach.dapui_config = function()
