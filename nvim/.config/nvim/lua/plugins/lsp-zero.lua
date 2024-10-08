@@ -25,12 +25,6 @@ return {
 												vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
 								end
 
-								lsp_zero.extend_lspconfig({
-												sign_text = true,
-												lsp_attach = lsp_attach,
-												capabilities = require('cmp_nvim_lsp').default_capabilities(),
-								})
-
 								lspconfig.ts_ls.setup({})
 				end
 }
