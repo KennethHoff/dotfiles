@@ -62,13 +62,18 @@ in
       };
     };
     programs.kitty.enable = true;
+    programs.rofi.enable = true;
+
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
       "general:no_focus_fallback" = true;
+      "animations:enabled" = false;
+      "exec-once" = "waybar";
       bind = [
 	"$mod, Q, exec, kitty"
 	"$mod, C, killactive"
+	"$mod, R, exec, rofi -show drun"
 	"$mod, M, fullscreen, 1"
 	"$mod, H, movefocus, l"
 	"$mod, J, movefocus, d"
@@ -94,12 +99,18 @@ in
     lazygit
     gh
     firefox
+    lsof
   ];
 
   programs = {
     zsh.enable = true;
     hyprland.enable = true;
     waybar.enable = true;
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
