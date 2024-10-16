@@ -4,6 +4,7 @@
 
 { config, pkgs, ... }:
 
+# Installs Home Manager v24.05
 let home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
 in
 {
@@ -12,11 +13,6 @@ in
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
     ];
-
-  # Home Manager
-  home-manager.users.kennethhoff = {
-    home.stateVersion = "24.05";
-  };
 
 
   # Bootloader.
@@ -46,12 +42,27 @@ in
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kennethhoff = {
-    isNormalUser = true;
-    description = "Kenneth Hoff";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+  users = {
+    users.kennethhoff = {
+      isNormalUser = true;
+      description = "Kenneth Hoff";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [];
+    };
+    defaultUserShell = pkgs.zsh;
   };
+
+  # Home Manager
+  home-manager.users.kennethhoff = {
+    home.stateVersion = "24.05";
+    programs.zsh = {
+      enable = true;
+      oh-my-zsh = {
+        enable = true;
+      };
+    };
+  };
+
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "kennethhoff";
@@ -71,6 +82,7 @@ in
   ];
 
   programs = {
+    zsh.enable = true;
     hyprland.enable = true;
     waybar.enable = true;
   };
