@@ -61,6 +61,21 @@ in
         enable = true;
       };
     };
+    programs.kitty.enable = true;
+    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland.settings = {
+      "$mod" = "SUPER";
+      "general:no_focus_fallback" = true;
+      bind = [
+	"$mod, Q, exec, kitty"
+	"$mod, C, killactive"
+	"$mod, M, fullscreen, 1"
+	"$mod, H, movefocus, l"
+	"$mod, J, movefocus, d"
+	"$mod, K, movefocus, u"
+	"$mod, L, movefocus, r"
+      ];
+    };
   };
 
 
@@ -115,3 +130,4 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
