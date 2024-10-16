@@ -4,11 +4,20 @@
 
 { config, pkgs, ... }:
 
+let home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (import "${home-manager}/nixos")
     ];
+
+  # Home Manager
+  home-manager.users.kennethhoff = {
+    home.stateVersion = "24.05";
+  };
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -58,9 +67,13 @@
     git
     lazygit
     gh
+    firefox
   ];
 
-  programs.hyprland.enable = true;
+  programs = {
+    hyprland.enable = true;
+    waybar.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
