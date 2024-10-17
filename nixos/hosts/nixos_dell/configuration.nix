@@ -51,29 +51,30 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    git
-    gh
-    lazygit
     kitty
+    git
+    lazygit
+    gh
     firefox
     lsof
     fzf
     wl-clipboard
-   ];
-  
-   fonts.packages = with pkgs; [
-     noto-fonts
-     jetbrains-mono
-   ];
+  ];
 
-   programs = {
-     zsh.enable = true;
-   };
+  fonts.packages = with pkgs; [
+    noto-fonts
+    jetbrains-mono
+  ];
 
-   # security.rtkit.enable = true;
-   # services.pipewire = {
-   #   enable = true;
-   # };
+  programs = {
+    zsh.enable = true;
+    waybar.enable = true;
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
