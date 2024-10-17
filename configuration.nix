@@ -102,9 +102,6 @@ in
            "workspaces, 1, 3, default"
          ];
        };
-       exec-once = [
-         "waybar"
-       ];
        bind = [
          "$mainMod, Q, exec, kitty"
          "$mainMod, P, exit"
