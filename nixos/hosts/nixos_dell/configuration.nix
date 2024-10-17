@@ -1,15 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
+  imports = [ ./hardware-configuration.nix ];
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -23,13 +15,7 @@
 
   networking.hostName = "nixos_dell"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; # Cannot be used in conjunction with wireless (apparently..)
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
@@ -37,6 +23,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # TODO: Is this needed?
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -63,30 +50,30 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim
-  #   kitty
-  #   git
-  #   lazygit
-  #   gh
-  #   firefox
-  #   lsof
-  #   fzf
-  #   wl-clipboard
-  # ];
-  #
-  # fonts.packages = with pkgs; [
-  #   noto-fonts
-  #   jetbrains-mono
-  ];
+      neovim
+     kitty
+     git
+     lazygit
+     gh
+     firefox
+     lsof
+     fzf
+     wl-clipboard
+   ];
+  
+   fonts.packages = with pkgs; [
+     noto-fonts
+     jetbrains-mono
+   ];
 
-  programs = {
-    zsh.enable = true;
-  };
+   programs = {
+     zsh.enable = true;
+   };
 
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  # };
+   security.rtkit.enable = true;
+   services.pipewire = {
+     enable = true;
+   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
