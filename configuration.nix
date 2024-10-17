@@ -73,9 +73,11 @@ in
     programs.kitty = {
       enable = true;
       settings = {
-        font_family = "arial";
+        font_family = "JetBrains Mono";
+	bold_font = "auto";
+	italic_font = "auto";
+	bold_italic_font = "auto";
       };
-
     };
     programs.rofi.enable = true;
 
