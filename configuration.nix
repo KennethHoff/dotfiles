@@ -94,10 +94,7 @@ in
            "workspaces, 1, 3, default"
          ];
        };
-       exec-once = [
-         "firefox"
-	 #"waybar"
-       ];
+       exec-once = [];
        bind = [
          "$mainMod, Q, exec, kitty"
          "$mainMod, P, exit"
@@ -153,11 +150,11 @@ in
     firefox
     lsof
     fzf
+    pkgs.nerdfonts
   ];
 
   programs = {
     zsh.enable = true;
-    hyprland.enable = true;
     waybar.enable = true;
   };
 
