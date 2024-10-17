@@ -59,28 +59,73 @@ in
       enable = true;
       oh-my-zsh = {
         enable = true;
+	theme = "robbyrussell";
+	plugins = [ "git" "thefuck" ];
       };
     };
     programs.kitty.enable = true;
     programs.rofi.enable = true;
 
-    wayland.windowManager.hyprland.enable = true;
-    wayland.windowManager.hyprland.settings = {
-      "$mod" = "SUPER";
-      "general:no_focus_fallback" = true;
-      "animations:enabled" = false;
-      "exec-once" = "waybar";
-      bind = [
-	"$mod, Q, exec, kitty"
-	"$mod, C, killactive"
-	"$mod, R, exec, rofi -show drun"
-	"$mod, M, fullscreen, 1"
-	"$mod, H, movefocus, l"
-	"$mod, J, movefocus, d"
-	"$mod, K, movefocus, u"
-	"$mod, L, movefocus, r"
-      ];
-    };
+    wayland.windowManager.hyprland = {
+     enable = true;
+     settings = {
+       "$mainMod" = "SUPER";
+       general = {
+         no_focus_fallback = true;
+         gaps_in = 2;
+         gaps_out = 5;
+         border_size = 5;
+       };
+       animations = {
+         enabled = true;
+         animation = [
+           "windows, 1, 7, default"
+           "windowsOut, 1, 7, default"
+           "border, 1, 10, default"
+           "borderangle, 1, 8, default"
+           "fade, 1, 7, default"
+           "workspaces, 1, 3, default"
+         ];
+       };
+       exec-once = [
+         "firefox"
+	 #"waybar"
+       ];
+       bind = [
+         "$mainMod, Q, exec, kitty"
+         "$mainMod, P, exit"
+         "$mainMod, C, killactive"
+         "$mainMod, R, exec, rofi -show drun"
+         "$mainMod, M, fullscreen, 1"
+         "$mainMod, H, movefocus, l"
+         "$mainMod, J, movefocus, d"
+         "$mainMod, K, movefocus, u"
+         "$mainMod, L, movefocus, r"
+
+         "$mainMod, 1, workspace, 1"
+         "$mainMod, 2, workspace, 2"
+         "$mainMod, 3, workspace, 3"
+         "$mainMod, 4, workspace, 4"
+         "$mainMod, 5, workspace, 5"
+         "$mainMod, 6, workspace, 6"
+         "$mainMod, 7, workspace, 7"
+         "$mainMod, 8, workspace, 8"
+         "$mainMod, 9, workspace, 9"
+         "$mainMod, 0, workspace, 10"
+
+         "$mainMod SHIFT, 1, movetoworkspace, 1"
+         "$mainMod SHIFT, 2, movetoworkspace, 2"
+         "$mainMod SHIFT, 3, movetoworkspace, 3"
+         "$mainMod SHIFT, 4, movetoworkspace, 4"
+         "$mainMod SHIFT, 5, movetoworkspace, 5"
+         "$mainMod SHIFT, 6, movetoworkspace, 6"
+         "$mainMod SHIFT, 7, movetoworkspace, 7"
+         "$mainMod SHIFT, 8, movetoworkspace, 8"
+         "$mainMod SHIFT, 9, movetoworkspace, 9"
+         "$mainMod SHIFT, 0, movetoworkspace, 10"
+       ];
+      };
+  };
   };
 
 
@@ -100,6 +145,7 @@ in
     gh
     firefox
     lsof
+    fzf
   ];
 
   programs = {
