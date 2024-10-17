@@ -60,8 +60,12 @@ in
       oh-my-zsh = {
         enable = true;
 	theme = "robbyrussell";
-	plugins = [ "git" "thefuck" ];
+	plugins = [ "git" ];
       };
+    };
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
     programs.kitty.enable = true;
     programs.rofi.enable = true;
