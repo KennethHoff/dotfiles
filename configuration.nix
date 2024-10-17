@@ -80,6 +80,11 @@ in
       };
     };
     programs.rofi.enable = true;
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      escapeTime = 0;
+    };
 
     wayland.windowManager.hyprland = {
      enable = true;
