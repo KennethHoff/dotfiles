@@ -70,7 +70,13 @@ in
       enable = true;
       enableZshIntegration = true;
     };
-    programs.kitty.enable = true;
+    programs.kitty = {
+      enable = true;
+      settings = {
+        font_family = "arial";
+      };
+
+    };
     programs.rofi.enable = true;
 
     wayland.windowManager.hyprland = {
@@ -94,7 +100,9 @@ in
            "workspaces, 1, 3, default"
          ];
        };
-       exec-once = [];
+       exec-once = [
+         "waybar"
+       ];
        bind = [
          "$mainMod, Q, exec, kitty"
          "$mainMod, P, exit"
@@ -143,14 +151,18 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    pkgs.kitty
+    kitty
     git
     lazygit
     gh
     firefox
     lsof
     fzf
-    pkgs.nerdfonts
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    jetbrains-mono
   ];
 
   programs = {
