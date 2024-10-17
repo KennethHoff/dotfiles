@@ -62,6 +62,9 @@ in
 	theme = "robbyrussell";
 	plugins = [ "git" ];
       };
+      initExtra = '' 
+        PROMPT="%F{cyan}%d%f %F{yellow}%#%f "
+      '';
     };
     programs.fzf = {
       enable = true;
