@@ -67,6 +67,9 @@
   ];
 
   programs = {
+    hyprland = {
+      enable = true;
+    };
     zsh.enable = true;
     waybar.enable = true;
   };
