@@ -4,8 +4,8 @@
 
 { config, pkgs, ... }:
 
-# Installs Home Manager v24.05
-let home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
+# Installs Home Manager "unstable" (Requires you to use the nix channel "nixos-unstable".
+let home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
   imports =
@@ -192,6 +192,5 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
 
