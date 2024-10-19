@@ -5,7 +5,9 @@
   pkgs,
   ...
 }: {
-  imports = [];
+  imports = [
+    ../../programs/neovim.nix
+  ];
 
   home.username = "kennethhoff";
   home.homeDirectory = "/home/kennethhoff";
@@ -136,13 +138,6 @@
         margin-right: 1rem;
         border-radius: 1rem;
       }
-    '';
-  };
-
-  programs.neovim = {
-    enable = true;
-    extraConfig = ''
-      set number relativenumber
     '';
   };
 
