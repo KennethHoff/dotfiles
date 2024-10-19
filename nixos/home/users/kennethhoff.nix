@@ -1,19 +1,14 @@
+{ inputs, lib, config, pkgs, ... }:
+
 {
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
-    ../../programs/neovim.nix
+    ../programs/neovim
   ];
 
   home.username = "kennethhoff";
   home.homeDirectory = "/home/kennethhoff";
   home.sessionVariables = {
     EDITOR = "nvim";
-
   };
 
   # Enables the Catppuccin theme globally.
