@@ -11,7 +11,12 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, catppuccin, ... }: {
+  outputs = inputs @ {
+    nixpkgs,
+    home-manager,
+    catppuccin,
+    ...
+  }: {
     nixosConfigurations = {
       nixos_dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -23,14 +28,14 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-	    home-manager.backupFileExtension = "hm-backup";
+            home-manager.backupFileExtension = "hm-backup";
             home-manager.users.kennethhoff = {
-	      imports = [
+              imports = [
                 # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff.nix
-	      ];
-	    };
+              ];
+            };
           }
         ];
       };

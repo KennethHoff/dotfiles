@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ripgrep
     fd
     lua-language-server
     nil # Nix Language Server
     alejandra # Nix Code Formatter
+		stylua
   ];
 
   programs.neovim = {
