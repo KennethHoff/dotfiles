@@ -51,7 +51,6 @@
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = [
-      pkgs.neovim
       pkgs.kitty
       pkgs.git
       pkgs.lazygit
