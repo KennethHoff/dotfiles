@@ -5,6 +5,8 @@
     ripgrep
     fd
     lua-language-server
+    nil # Nix Language Server
+    alejandra # Nix Code Formatter
   ];
 
   programs.neovim = {
