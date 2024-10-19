@@ -16,114 +16,98 @@
 
   programs.waybar = {
     enable = true;
+    # style = '''';
     settings = [{
-      "layer" = "top";
-      "position" = "top";
-      "modules-center" = ["hyprland/workspaces"];
-      "modules-right" = ["pulseaudio" "backlight" "battery" "clock" "tray"];
+     "layer" = "top";
+     "position" = "top";
+     modules-left = [
+      "custom/launcher"
+       "temperature"
+       "mpd"
+       "custom/cava-internal"
+     ];
+     modules-center = [
+      "clock"
+     ];
+     modules-right = [
+      "pulseaudio"
+       "backlight"
+       "memory"
+       "cpu"
+       "network"
+       "custom/powermenu"
+       "tray"
+     ];
+     "custom/launcher" = {
+      "format" = " ";
+      "on-click" = "pkill rofi || rofi2";
+      "on-click-middle" = "exec default_wall";
+      "on-click-right" = "exec wallpaper_random";
+      "tooltip" = false;
+     };
+     "custom/cava-internal" = {
+      "exec" = "sleep 1s && cava-internal";
+      "tooltip" = false;
+     };
+     "pulseaudio" = {
+      "scroll-step" = 1;
+      "format" = "{icon} {volume}%";
+      "format-muted" = "󰖁 Muted";
+      "format-icons" = {
+       "default" = [ "" "" "" ];
+      };
+      "on-click" = "pamixer -t";
+      "tooltip" = false;
+     };
+     "clock" = {
+      "interval" = 1;
+      "format" = "<b>󰥔 {:%H:%M:%S  󰃭 %a %d/%m (%W)}</b>";
+      "tooltip" = true;
+      "tooltip-format"= "<tt>{calendar}</tt>";
+     };
+     "memory" = {
+      "interval" = 1;
+      "format" = "󰻠 {percentage}%";
+      "states" = {
+       "warning" = 85;
+      };
+     };
+     "cpu" = {
+      "interval" = 1;
+      "format" = "󰍛 {usage}%";
+     };
+     "mpd" = {
+      "max-length" = 25;
+      "format" = "<span foreground='#bb9af7'></span> {title}";
+      "format-paused" = " {title}";
+      "format-stopped" = "<span foreground='#bb9af7'></span>";
+      "format-disconnected" = "";
+      "on-click" = "mpc --quiet toggle";
+      "on-click-right" = "mpc update; mpc ls | mpc add";
+      "on-click-middle" = "kitty --class='ncmpcpp' ncmpcpp ";
+      "on-scroll-up" = "mpc --quiet prev";
+      "on-scroll-down" = "mpc --quiet next";
+      "smooth-scrolling-threshold" = 5;
+      "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+     };
+     "network" = {
+      "format-disconnected" = "󰯡 Disconnected";
+      "format-ethernet" = "󰒢 Connected!";
+      "format-linked" = "󰖪 {essid} (No IP)";
+      "format-wifi" = "󰖩 {essid}";
+      "interval" = 1;
+      "tooltip" = false;
+     };
+     "custom/powermenu" = {
+      "format" = "";
+      "on-click" = "pkill rofi || ~/.config/rofi/powermenu/type-3/powermenu.sh";
+      "tooltip" = false;
+     };
+     "tray" = {
+      "icon-size" = 15;
+      "spacing" = 5;
+     };
     }];
-    style = ''
-      * {
-        font-family: FantasqueSansMono Nerd Font;
-        font-size: 17px;
-        min-height: 0;
-      }
-      
-      #waybar {
-        background: transparent;
-        color: @text;
-        margin: 5px 5px;
-      }
-      
-      #workspaces {
-        border-radius: 1rem;
-        margin: 5px;
-        background-color: @surface0;
-        margin-left: 1rem;
-      }
-      
-      #workspaces button {
-        color: @lavender;
-        border-radius: 1rem;
-        padding: 0.4rem;
-      }
-      
-      #workspaces button.active {
-        color: @sky;
-        border-radius: 1rem;
-      }
-      
-      #workspaces button:hover {
-        color: @sapphire;
-        border-radius: 1rem;
-      }
-      
-      #custom-music,
-      #tray,
-      #backlight,
-      #clock,
-      #battery,
-      #pulseaudio,
-      #custom-lock,
-      #custom-power {
-        background-color: @surface0;
-        padding: 0.5rem 1rem;
-        margin: 5px 0;
-      }
-      
-      #clock {
-        color: @blue;
-        border-radius: 0px 1rem 1rem 0px;
-        margin-right: 1rem;
-      }
-      
-      #battery {
-        color: @green;
-      }
-      
-      #battery.charging {
-        color: @green;
-      }
-      
-      #battery.warning:not(.charging) {
-        color: @red;
-      }
-      
-      #backlight {
-        color: @yellow;
-      }
-      
-      #backlight, #battery {
-          border-radius: 0;
-      }
-      
-      #pulseaudio {
-        color: @maroon;
-        border-radius: 1rem 0px 0px 1rem;
-        margin-left: 1rem;
-      }
-      
-      #custom-music {
-        color: @mauve;
-        border-radius: 1rem;
-      }
-      
-      #custom-lock {
-          border-radius: 1rem 0px 0px 1rem;
-          color: @lavender;
-      }
-      
-      #custom-power {
-          margin-right: 1rem;
-          border-radius: 0px 1rem 1rem 0px;
-          color: @red;
-      }
-      
-      #tray {
-        margin-right: 1rem;
-        border-radius: 1rem;
-      }
-    '';
   };
 
   programs.zsh = {
