@@ -66,13 +66,15 @@
   fonts.packages = [
     pkgs.noto-fonts
     pkgs.jetbrains-mono
+    pkgs.font-awesome
+    pkgs.powerline-fonts
+    pkgs.powerline-symbols
+    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   programs = {
-    hyprland = {
-      enable = true;
-    };
     zsh.enable = true;
+    hyprland.enable = true;
     waybar.enable = true;
   };
 
