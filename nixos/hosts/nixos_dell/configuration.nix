@@ -36,7 +36,6 @@
       isNormalUser = true;
       description = "Kenneth Hoff";
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [];
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -49,21 +48,21 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    kitty
-    git
-    lazygit
-    gh
-    firefox
-    lsof
-    fzf
-    wl-clipboard
+  environment.systemPackages = [
+    pkgs.neovim
+    pkgs.kitty
+    pkgs.git
+    pkgs.lazygit
+    pkgs.gh
+    pkgs.firefox
+    pkgs.lsof
+    pkgs.fzf
+    pkgs.wl-clipboard
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    jetbrains-mono
+  fonts.packages = [
+    pkgs.noto-fonts
+    pkgs.jetbrains-mono
   ];
 
   programs = {
