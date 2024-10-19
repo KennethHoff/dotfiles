@@ -10,6 +10,9 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+	home.packages = with pkgs; [
+    nil
+	];
 
   # Enables the Catppuccin theme globally.
   catppuccin.enable = true;

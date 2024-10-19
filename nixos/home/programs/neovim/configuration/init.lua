@@ -7,3 +7,5 @@ vim.opt.wrap = false
 vim.opt.undofile = true
 
 vim.opt.termguicolors = true
+
+require("./treesitter-parsers.lua")

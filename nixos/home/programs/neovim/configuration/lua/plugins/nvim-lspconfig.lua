@@ -1,6 +1,11 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+    config = function() 
+      local lsp = require('lspconfig')
+      lsp.nil_ls.setup{}
+      lsp.lua_ls.setup{}
+    end
 	},
 	{
 		"ray-x/lsp_signature.nvim",
