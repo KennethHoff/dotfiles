@@ -48,18 +48,21 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.neovim
-    pkgs.kitty
-    pkgs.git
-    pkgs.lazygit
-    pkgs.gh
-    pkgs.firefox
-    pkgs.lsof
-    pkgs.fzf
-    pkgs.wl-clipboard
-  ];
-
+  environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+    systemPackages = [
+      pkgs.neovim
+      pkgs.kitty
+      pkgs.git
+      pkgs.lazygit
+      pkgs.gh
+      pkgs.firefox
+      pkgs.lsof
+      pkgs.fzf
+      pkgs.wl-clipboard
+      pkgs.slack
+    ];
+  };
   fonts.packages = [
     pkgs.noto-fonts
     pkgs.jetbrains-mono
