@@ -7,9 +7,11 @@
 }: {
   imports = [];
 
-  home = {
-    username = "kennethhoff";
-    homeDirectory = "/home/kennethhoff";
+  home.username = "kennethhoff";
+  home.homeDirectory = "/home/kennethhoff";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+
   };
 
   # Enables the Catppuccin theme globally.
@@ -139,7 +141,6 @@
 
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
     extraConfig = ''
       set number relativenumber
     '';
