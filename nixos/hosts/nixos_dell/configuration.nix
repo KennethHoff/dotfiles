@@ -64,6 +64,9 @@
       pkgs.satty
       pkgs.grim
       pkgs.slurp
+      pkgs.kdePackages.qtwayland
+      pkgs.kdePackages.dolphin
+      pkgs.kdePackages.qtsvg
     ];
   };
   fonts.packages = [
