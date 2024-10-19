@@ -61,6 +61,9 @@
       pkgs.fzf
       pkgs.wl-clipboard
       pkgs.slack
+      pkgs.satty
+      pkgs.grim
+      pkgs.slurp
     ];
   };
   fonts.packages = [

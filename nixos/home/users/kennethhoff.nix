@@ -7,13 +7,15 @@
 }: {
   imports = [];
 
-  catppuccin.enable = true;
-  
   home = {
     username = "kennethhoff";
     homeDirectory = "/home/kennethhoff";
   };
 
+  # Enables the Catppuccin theme globally.
+  catppuccin.enable = true;
+
+  # TODO: Move this to a dedicated flake
   programs.waybar = {
     enable = true;
     settings = [{
@@ -188,6 +190,8 @@
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
         "$mainMod, L, movefocus, r"
+	"$mainMod, S, exec, grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
+
         
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
