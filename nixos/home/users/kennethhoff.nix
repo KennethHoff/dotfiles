@@ -15,6 +15,15 @@
   # Enables the Catppuccin theme globally.
   catppuccin.enable = true;
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
   # TODO: Move this to a dedicated flake
   programs.waybar = {
     enable = true;
@@ -218,34 +227,64 @@
     };
   };
 
+  # xdg = {
+  #   "XDG_OPEN" = "your-file-manager-command";
+  # };
 
-  # Sets Dark Mode
-dconf.settings = {
-  "org/gnome/desktop/background" = {
-    picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
-  "org/gnome/desktop/interface" = {
-    color-scheme = "prefer-dark";
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
   };
-};
 
-# gtk = {
-#   enable = true;
-#   theme = {
-#     name = "Adwaita-dark";
-#     package = pkgs.gnome.gnome-themes-extra;
-#   };
-# };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Adwaita-dark";
+  #     package = pkgs.gnome.gnome-themes-extra;
+  #   };
+  # };
 
-# # Wayland, X, etc. support for session vars
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adwaita-dark";
+  # };
+
+
+  # gtk = {
+  #   enable = true;
+  #
+  #   theme = {
+  #     package = pkgs.flat-remix-gtk;
+  #     name = "Flat-Remix-GTK-Grey-Darkest";
+  #   };
+  #
+  #   iconTheme = {
+  #     package = pkgs.gnome.adwaita-icon-theme;
+  #     name = "Adwaita-dark";
+  #   };
+  #
+  #   font = {
+  #     name = "Sans";
+  #     size = 11;
+  #   };
+  # };
+
 # systemd.user.sessionVariables = config.home-manager.users.justinas.home.sessionVariables;
 # };
-#
-# qt = {
-# enable = true;
-# platformTheme = "gnome";
-# style = "adwaita-dark";
-# };
+
 
 
   ## BOILER PLATE ##
