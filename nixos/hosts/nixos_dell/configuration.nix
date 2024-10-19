@@ -50,28 +50,29 @@
   # $ nix search wget
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
-    systemPackages = [
-      pkgs.kitty
-      pkgs.git
-      pkgs.lazygit
-      pkgs.gh
-      pkgs.firefox
-      pkgs.lsof
-      pkgs.fzf
-      pkgs.wl-clipboard
-      pkgs.slack
-      pkgs.satty
-      pkgs.grim
-      pkgs.slurp
+    systemPackages = with pkgs; [
+      kitty
+      git
+      lazygit
+      gh
+      firefox
+      lsof
+      fzf
+      wl-clipboard
+      slack
+      satty
+      grim
+      slurp
+      gcc
     ];
   };
-  fonts.packages = [
-    pkgs.noto-fonts
-    pkgs.jetbrains-mono
-    pkgs.font-awesome
-    pkgs.powerline-fonts
-    pkgs.powerline-symbols
-    (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+  fonts.packages = with pkgs; [
+    noto-fonts
+    jetbrains-mono
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   programs = {
