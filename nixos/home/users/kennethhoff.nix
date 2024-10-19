@@ -6,6 +6,11 @@
   ...
 }: {
   imports = [];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
   
   home = {
     username = "kennethhoff";
