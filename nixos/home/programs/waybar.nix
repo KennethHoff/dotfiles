@@ -11,7 +11,14 @@
         layer = "top";
         position = "top";
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["upower#dell" "upower#mouse" "clock" "tray"];
+        modules-right = ["upower#dell" "upower#mouse" "wireplumber" "clock" "tray"];
+
+        wireplumber = {
+          format = "{volume}% {icon}";
+          format-muted = "";
+          on-click = "helvum";
+          format-icons = ["" "" ""];
+        };
 
         "upower#dell" = {
           native-path = "BAT0";
@@ -60,59 +67,60 @@
       }
     ];
     style = ''
-      * {
-        font-family: FantasqueSansMono Nerd Font;
-        font-size: 17px;
-        min-height: 0;
-      }
+         * {
+           font-family: FantasqueSansMono Nerd Font;
+           font-size: 17px;
+           min-height: 0;
+         }
 
-      #waybar {
-        background: transparent;
-        color: @text;
-        margin: 5px 5px;
-      }
+         #waybar {
+           background: transparent;
+           color: @text;
+           margin: 5px 5px;
+         }
 
-      #workspaces {
-        border-radius: 1rem;
-        margin: 5px;
-        background-color: @surface0;
-        margin-left: 1rem;
-      }
+         #workspaces {
+           border-radius: 1rem;
+           margin: 5px;
+           background-color: @surface0;
+           margin-left: 1rem;
+         }
 
-      #workspaces button {
-        color: @lavender;
-        border-radius: 1rem;
-        padding: 0.4rem;
-      }
+         #workspaces button {
+           color: @lavender;
+           border-radius: 1rem;
+           padding: 0.4rem;
+         }
 
-      #workspaces button.active {
-        color: @sky;
-        border-radius: 1rem;
-      }
+         #workspaces button.active {
+           color: @sky;
+           border-radius: 1rem;
+         }
 
-      #workspaces button:hover {
-        color: @sapphire;
-        border-radius: 1rem;
-      }
+         #workspaces button:hover {
+           color: @sapphire;
+           border-radius: 1rem;
+         }
 
-      #upower,
-      #clock,
-      #tray {
-        background-color: @surface0;
-        padding: 0.5rem 1rem;
-        margin: 5px 0;
-      }
+         #upower,
+         #clock,
+         #wireplumber,
+         #tray {
+           background-color: @surface0;
+           padding: 0.5rem 1rem;
+           margin: 5px 0;
+         }
 
-      #clock {
-        color: @blue;
-        border-radius: 0px 1rem 1rem 0px;
-        margin-right: 1rem;
-      }
+         #clock {
+           color: @blue;
+           border-radius: 0px 1rem 1rem 0px;
+           margin-right: 1rem;
+         }
 
-      #tray {
-        margin-right: 1rem;
-        border-radius: 1rem;
-      }
+         #tray {
+           margin-right: 1rem;
+           border-radius: 1rem;
+         }
     '';
   };
 }

@@ -21,6 +21,10 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+
+		packages = with pkgs; [
+			spotify
+		];
   };
 
   ## BOILER PLATE ##

@@ -70,6 +70,7 @@
       slack
       satty
       gcc
+			helvum
     ];
   };
   fonts.packages = with pkgs; [
