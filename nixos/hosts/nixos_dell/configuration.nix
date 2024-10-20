@@ -1,7 +1,13 @@
-{ config, pkgs, ... }:
-
+# Description:
+# This is the firmware configuration for the Dell Laptop (Previously known as "Work Laptop")
 {
-  imports = [ ./hardware-configuration.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -35,7 +41,7 @@
     users.kennethhoff = {
       isNormalUser = true;
       description = "Kenneth Hoff";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -72,7 +78,7 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   programs = {
@@ -113,5 +119,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 }
-
-

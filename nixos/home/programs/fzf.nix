@@ -9,4 +9,3 @@
     enableZshIntegration = true;
   };
 }
-
