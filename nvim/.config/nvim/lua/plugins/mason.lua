@@ -8,12 +8,9 @@ local function is_nixos()
 	end
 end
 
-if is_nixos() then
-	return
-end
-
 return {
 	{
+		enabled = not is_nixos(),
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -31,6 +28,7 @@ return {
 		end,
 	},
 	{
+		enabled = not is_nixos(),
 		"williamboman/mason.nvim",
 		cmd = "Mason",
 		build = ":MasonUpdate",
