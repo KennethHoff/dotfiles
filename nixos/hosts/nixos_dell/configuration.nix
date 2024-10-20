@@ -27,7 +27,7 @@
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "nb_NO.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # TODO: Is this needed?
   # Configure keymap in X11
@@ -70,7 +70,7 @@
       slack
       satty
       gcc
-			helvum
+      helvum
     ];
   };
   fonts.packages = with pkgs; [
