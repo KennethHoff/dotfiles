@@ -47,7 +47,7 @@
         "$mainMod, P, exit"
         "$mainMod, C, killactive"
         "$mainMod, R, exec, rofi -show drun"
-        "$mainMod, M, fullscreen, 1"
+        "$mainMod, M, fullscreen, 0"
         "$mainMod, H, movefocus, l"
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
