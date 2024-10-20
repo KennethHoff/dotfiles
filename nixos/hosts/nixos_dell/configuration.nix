@@ -27,7 +27,7 @@
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "nb_NO.UTF-8";
 
   # TODO: Is this needed?
   # Configure keymap in X11
@@ -36,7 +36,7 @@
     variant = "";
   };
 
-	services.upower.enable = true;
+  services.upower.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -90,6 +90,11 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
