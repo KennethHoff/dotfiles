@@ -42,6 +42,11 @@
           "workspaces, 1, 3, default"
         ];
       };
+      exec-once = [
+        "[workspace 3 silent] firefox"
+        "[workspace 5 silent] spotify"
+        "[workspace 1 silent] kitty"
+      ];
       bind = [
         "$mainMod, Q, exec, kitty"
         "$mainMod, P, exit"
