@@ -52,7 +52,7 @@
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
         "$mainMod, L, movefocus, r"
-        "$mainMod, S, exec, grimblast copysave area ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
+        "$mainMod, S, exec, grimblast --freeze copysave area ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
