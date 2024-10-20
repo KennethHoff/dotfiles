@@ -67,8 +67,6 @@
       wl-clipboard
       slack
       satty
-      grim
-      slurp
       gcc
     ];
   };

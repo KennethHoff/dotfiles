@@ -14,7 +14,7 @@
       yank
     ];
     extraConfig = ''
-      # act like vim (In conjunction with 'vim-tmux-navigator'
+      # act like vim (In conjunction with 'vim-tmux-navigator')
       set-window-option -g mode-keys vi
 
       # Mouse works as expected

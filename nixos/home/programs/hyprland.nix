@@ -13,6 +13,9 @@
       bold_italic_font = "auto";
     };
   };
+  home.packages = with pkgs; [
+    grimblast
+  ];
   programs.rofi.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
@@ -49,8 +52,7 @@
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
         "$mainMod, L, movefocus, r"
-        "$mainMod, S, exec, grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
-
+        "$mainMod, S, exec, grimblast copysave area ~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png"
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
