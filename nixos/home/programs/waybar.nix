@@ -8,10 +8,41 @@
     enable = true;
     settings = [
       {
-        "layer" = "top";
-        "position" = "top";
-        "modules-center" = ["hyprland/workspaces"];
-        "modules-right" = ["pulseaudio" "backlight" "battery" "clock" "tray"];
+        layer = "top";
+        position = "top";
+        modules-center = ["hyprland/workspaces"];
+        modules-right = ["battery" "clock" "tray"];
+
+        battery = {
+          interval = 60;
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-icons = ["" "" "" "" ""];
+          max-length = 25;
+        };
+
+        clock = {
+          interval = 1;
+          # "format-alt" = "{:%A, %B %d, %Y (%R)}  ";
+          format = "{:%H:%M:%S}  ";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            };
+          };
+        };
       }
     ];
     style = ''
