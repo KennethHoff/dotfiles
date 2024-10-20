@@ -1,16 +1,8 @@
-local function is_nixos()
-	local file = io.open("/etc/NIXOS", "r")
-	if file ~= nil then
-		io.close(file)
-		return true
-	else
-		return false
-	end
-end
+local system = require("../utils/system")
 
 return {
 	{
-		enabled = not is_nixos(),
+		enabled = system.mason_enabled,
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -28,7 +20,7 @@ return {
 		end,
 	},
 	{
-		enabled = not is_nixos(),
+		enabled = system.mason_enabled,
 		"williamboman/mason.nvim",
 		cmd = "Mason",
 		build = ":MasonUpdate",
