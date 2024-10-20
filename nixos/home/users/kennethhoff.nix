@@ -1,8 +1,13 @@
-{ inputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../programs/neovim.nix
+    ../programs/tmux.nix
   ];
 
   home.username = "kennethhoff";
@@ -26,48 +31,50 @@
   # TODO: Move this to a dedicated flake
   programs.waybar = {
     enable = true;
-    settings = [{
-      "layer" = "top";
-      "position" = "top";
-      "modules-center" = ["hyprland/workspaces"];
-      "modules-right" = ["pulseaudio" "backlight" "battery" "clock" "tray"];
-    }];
+    settings = [
+      {
+        "layer" = "top";
+        "position" = "top";
+        "modules-center" = ["hyprland/workspaces"];
+        "modules-right" = ["pulseaudio" "backlight" "battery" "clock" "tray"];
+      }
+    ];
     style = ''
       * {
         font-family: FantasqueSansMono Nerd Font;
         font-size: 17px;
         min-height: 0;
       }
-      
+
       #waybar {
         background: transparent;
         color: @text;
         margin: 5px 5px;
       }
-      
+
       #workspaces {
         border-radius: 1rem;
         margin: 5px;
         background-color: @surface0;
         margin-left: 1rem;
       }
-      
+
       #workspaces button {
         color: @lavender;
         border-radius: 1rem;
         padding: 0.4rem;
       }
-      
+
       #workspaces button.active {
         color: @sky;
         border-radius: 1rem;
       }
-      
+
       #workspaces button:hover {
         color: @sapphire;
         border-radius: 1rem;
       }
-      
+
       #custom-music,
       #tray,
       #backlight,
@@ -80,55 +87,55 @@
         padding: 0.5rem 1rem;
         margin: 5px 0;
       }
-      
+
       #clock {
         color: @blue;
         border-radius: 0px 1rem 1rem 0px;
         margin-right: 1rem;
       }
-      
+
       #battery {
         color: @green;
       }
-      
+
       #battery.charging {
         color: @green;
       }
-      
+
       #battery.warning:not(.charging) {
         color: @red;
       }
-      
+
       #backlight {
         color: @yellow;
       }
-      
+
       #backlight, #battery {
           border-radius: 0;
       }
-      
+
       #pulseaudio {
         color: @maroon;
         border-radius: 1rem 0px 0px 1rem;
         margin-left: 1rem;
       }
-      
+
       #custom-music {
         color: @mauve;
         border-radius: 1rem;
       }
-      
+
       #custom-lock {
           border-radius: 1rem 0px 0px 1rem;
           color: @lavender;
       }
-      
+
       #custom-power {
           margin-right: 1rem;
           border-radius: 0px 1rem 1rem 0px;
           color: @red;
       }
-      
+
       #tray {
         margin-right: 1rem;
         border-radius: 1rem;
@@ -141,9 +148,9 @@
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
-    initExtra = '' 
+    initExtra = ''
       PROMPT="%F{cyan}%d%f %F{yellow}%#%f "
     '';
   };
@@ -161,12 +168,7 @@
     };
   };
   programs.rofi.enable = true;
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    escapeTime = 0;
-  };
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -198,9 +200,8 @@
         "$mainMod, J, movefocus, d"
         "$mainMod, K, movefocus, u"
         "$mainMod, L, movefocus, r"
-	"$mainMod, S, exec, grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
+        "$mainMod, S, exec, grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
 
-        
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -211,7 +212,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        
+
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -261,7 +262,6 @@
   #   style = "adwaita-dark";
   # };
 
-
   # gtk = {
   #   enable = true;
   #
@@ -281,10 +281,8 @@
   #   };
   # };
 
-# systemd.user.sessionVariables = config.home-manager.users.justinas.home.sessionVariables;
-# };
-
-
+  # systemd.user.sessionVariables = config.home-manager.users.justinas.home.sessionVariables;
+  # };
 
   ## BOILER PLATE ##
 
