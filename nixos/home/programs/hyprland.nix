@@ -18,6 +18,10 @@
     enable = true;
     settings = {
       "$mainMod" = "SUPER";
+      input = {
+        repeat_delay = "200";
+        repeat_rate = "30";
+      };
       general = {
         no_focus_fallback = true;
         gaps_in = 2;
