@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
+  imports = [
+    ../../../utils.nix
+  ];
   home.packages = with pkgs; [
     ripgrep
     fd
@@ -12,9 +20,7 @@
     enable = true;
   };
 
-  # Copy the top-level neovim config into `..config/nvim`
-  home.file."./.config/nvim/" = {
-    source = ../../../../nvim/.config/nvim;
-    recursive = true;
-  };
+  # Symlink the `~/.config/nvim` to the `~/dotfiles/nvim/.config/nvim` directory
+	# This essentially mirrors `GNU stow` in home-manager
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/nvim/.config/nvim/";
 }
