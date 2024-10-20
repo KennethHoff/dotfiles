@@ -12,8 +12,9 @@
     enable = true;
   };
 
+  # Copy the top-level neovim config into `..config/nvim`
   home.file."./.config/nvim/" = {
-    source = ./configuration;
+    source = ../../../../nvim/.config/nvim;
     recursive = true;
   };
 }
