@@ -18,11 +18,11 @@
     ...
   }: {
     nixosConfigurations = {
-      nixos_dell = nixpkgs.lib.nixosSystem {
+      nixos-dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
-          ./hosts/nixos_dell/configuration.nix
+          ./hosts/nixos-dell/configuration.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
