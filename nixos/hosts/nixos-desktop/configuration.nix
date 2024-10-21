@@ -32,7 +32,7 @@
   # TODO: Is this needed?
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "no";
     variant = "";
   };
 
@@ -44,6 +44,7 @@
       isNormalUser = true;
       description = "Kenneth Hoff";
       extraGroups = ["networkmanager" "wheel"];
+			password = "1234";
     };
     defaultUserShell = pkgs.zsh;
   };
