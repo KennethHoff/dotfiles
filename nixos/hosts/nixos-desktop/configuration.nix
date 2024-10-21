@@ -44,7 +44,7 @@
       isNormalUser = true;
       description = "Kenneth Hoff";
       extraGroups = ["networkmanager" "wheel"];
-			password = "1234";
+      password = "1234";
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -97,6 +97,8 @@
       extraCompatPackages = with pkgs; [proton-ge-bin];
     };
   };
+
+  security.pam.services.hyprlock = {};
 
   security.rtkit.enable = true;
   services.pipewire = {

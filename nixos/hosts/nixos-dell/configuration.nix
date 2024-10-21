@@ -97,6 +97,8 @@
     };
   };
 
+  security.pam.services.hyprlock = {};
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
