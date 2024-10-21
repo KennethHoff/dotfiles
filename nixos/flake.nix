@@ -39,6 +39,27 @@
           }
         ];
       };
+      nixos-media = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
+          ./hosts/nixos-media/configuration.nix
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+            home-manager.users.kennethhoff = {
+              imports = [
+                # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
+                catppuccin.homeManagerModules.catppuccin
+                ./home/users/kennethhoff.nix
+              ];
+            };
+          }
+        ];
+      };
       nixos-dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
