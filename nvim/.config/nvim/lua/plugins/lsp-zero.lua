@@ -32,5 +32,7 @@ return {
 		})
 
 		lspconfig.ts_ls.setup({})
+		lspconfig.astro.setup({})
+		lspconfig.tailwindcss.setup({})
 	end,
 }
