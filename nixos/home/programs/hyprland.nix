@@ -31,6 +31,11 @@
         gaps_out = 5;
         border_size = 5;
       };
+      monitor = [
+        "DP-1,     preferred, auto      , 1"
+        "HDMI-A-1, preferred, auto-left , 2"
+        "HDMI-A-2, preferred, auto-right, 2"
+      ];
       animations = {
         enabled = true;
         animation = [
