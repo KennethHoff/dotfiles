@@ -14,6 +14,7 @@
     ../programs/obs-studio.nix
     ../programs/zsh.nix
     ../programs/fzf.nix
+    ../programs/yazi.nix
   ];
   home = {
     username = "kennethhoff";
@@ -22,9 +23,9 @@
       EDITOR = "nvim";
     };
 
-		packages = with pkgs; [
-			spotify
-		];
+    packages = with pkgs; [
+      spotify
+    ];
   };
 
   ## BOILER PLATE ##
