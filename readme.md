@@ -37,3 +37,7 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
 
 - [ ] Split home-manager directory into smaller chunks to allow for host-specific applications.
 
+- [ ] Improved Audio management
+   - [ ] Audio Router (Route specific apps to specific output channels; {Spotify -> User}, {Discord -> User}, {Game -> Recording & User}
+   - [ ] Audio Mixer (Raise and lower volume of specific apps for specific outputs)
+
