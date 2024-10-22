@@ -38,7 +38,7 @@
         }
       ];
 
-			## I don't have a password, so I don't need an input field..
+      ## I don't have a password, so I don't need an input field..
       # input-field = [
       #   {
       #     size = "200, 50";
