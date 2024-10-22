@@ -33,6 +33,16 @@
     lg = "lazygit";
   };
 
+  systemd.user.services.wayvnc = {
+    Unit.Description = "Allows remote connections to this host";
+    Install.WantedBy = [ "default.target" ];
+    Service = {
+      ExecStart = "${pkgs.wayvnc}/bin/wayvnc -o DP-1 0.0.0.0 5900";
+      Restart = "always";
+      RestartSec = 10;
+    };
+  };
+
   ## BOILER PLATE ##
   # Nicely reload system units when changing configs. (No idea what that means)
   systemd.user.startServices = "sd-switch";
