@@ -21,8 +21,14 @@
       EDITOR = "nvim";
     };
 
+    # Miscellaneous packages
     packages = with pkgs; [
       spotify
+      lazygit
+      firefox
+      gh # GitHub CLI
+      slack
+      wl-clipboard
     ];
   };
 

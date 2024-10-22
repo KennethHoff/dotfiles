@@ -62,19 +62,10 @@
   # $ nix search wget
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
-    systemPackages = with pkgs; [
-      kitty
-      git
-      lazygit
-      gh
-      firefox
-      lsof
-      fzf
-      wl-clipboard
-      slack
-      satty
-      gcc
-      helvum
+    systemPackages = [
+      pkgs.git
+      pkgs.lsof
+      pkgs.fzf
     ];
   };
   fonts.packages = with pkgs; [
