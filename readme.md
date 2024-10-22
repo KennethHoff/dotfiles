@@ -54,3 +54,8 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
 
 - [ ] Simplify bootstrapping of new hosts.
    - While this is far from complicated/time-consuming, there are obvious improvements that can be made here. Look into if it's possible to create a one-liner that does it all (`curl *** | sh`)
+
+- [ ] Automation
+  - [ ] Auto-update packages daily/weekly using GitHub Actions.
+  - [ ] Validate configurations still work after auto-update.
+      - Not sure how this would work, but intriguing concept.
