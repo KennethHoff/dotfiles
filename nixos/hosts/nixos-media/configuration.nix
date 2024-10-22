@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
   ];
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.git;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

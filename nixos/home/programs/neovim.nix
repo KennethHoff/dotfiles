@@ -14,11 +14,8 @@
     nil # Unofficial Nix Language Server
     nixfmt-rfc-style # Official Nix Code Formatter
     stylua
+    neovim
   ];
-
-  programs.neovim = {
-    enable = true;
-  };
 
   # Symlink the `~/.config/nvim` to the `~/dotfiles/nvim/.config/nvim` directory
   # This essentially mirrors `GNU stow` in home-manager
