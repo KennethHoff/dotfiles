@@ -27,7 +27,7 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
   - [x] With SSH Tunneling (for security).
 
 - [ ] Safely store secrets, like host password.
-    This is de-facto mandatory for allowing SSH tunneling on the internet; Currently it's only accessible on the local network.
+    - This is de-facto mandatory for allowing SSH tunneling on the internet; Currently it's only accessible on the local network.
 
 - [ ] [Impermanence](https://nixos.wiki/wiki/Impermanence) (Wipe root directory every time you reboot)
 
@@ -40,4 +40,8 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
 - [ ] Improved Audio management
    - [ ] Audio Router (Route specific apps to specific output channels; {Spotify -> User}, {Discord -> User}, {Game -> Recording & User}
    - [ ] Audio Mixer (Raise and lower volume of specific apps for specific outputs)
+
+- [ ] Install [nix-darwin](https://github.com/LnL7/nix-darwin) on my Mac.
+   - While it doesn't support _everything_ that NixOS in its entirety does, it seems to support many. Also, you can install `homebrew` apps through `nix-darwin` so there's seemingly no reason not to just migrate.
+   - I imagine it's recommended to factory reset the Mac before doing this, but I know it's technically not required.
 
