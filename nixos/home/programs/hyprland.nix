@@ -1,9 +1,8 @@
 {
   pkgs,
-  config,
-  lib,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # Screenshot Utility made by the Hyprland team.
     grimblast

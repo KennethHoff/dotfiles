@@ -1,10 +1,8 @@
 {
-  inputs,
-  lib,
-  config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../themes/catppuccin-mocha.nix
     ../programs/neovim.nix
@@ -26,6 +24,10 @@
     packages = with pkgs; [
       spotify
     ];
+  };
+
+  home.shellAliases = {
+    lg = "lazygit";
   };
 
   ## BOILER PLATE ##

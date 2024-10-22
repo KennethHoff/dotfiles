@@ -1,9 +1,9 @@
 {
   pkgs,
   config,
-  lib,
   ...
-}: {
+}:
+{
   imports = [
     ../../utils.nix
   ];
@@ -11,8 +11,8 @@
     ripgrep
     fd
     lua-language-server
-    nil # Nix Language Server
-    alejandra # Nix Code Formatter
+    nil # Unofficial Nix Language Server
+    nixfmt-rfc-style # Official Nix Code Formatter
     stylua
   ];
 

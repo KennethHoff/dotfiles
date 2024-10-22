@@ -1,23 +1,31 @@
 {
-  pkgs,
-  config,
-  lib,
   ...
-}: {
+}:
+{
   programs.waybar = {
     enable = true;
     settings = [
       {
         layer = "top";
         position = "top";
-        modules-center = ["hyprland/workspaces"];
-        modules-right = ["upower#dell" "upower#mouse" "wireplumber" "clock" "tray"];
+        modules-center = [ "hyprland/workspaces" ];
+        modules-right = [
+          "upower#dell"
+          "upower#mouse"
+          "wireplumber"
+          "clock"
+          "tray"
+        ];
 
         wireplumber = {
           format = "{volume}% {icon}";
           format-muted = "";
           on-click = "helvum";
-          format-icons = ["" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+          ];
         };
 
         "upower#dell" = {
@@ -41,7 +49,13 @@
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           max-length = 25;
         };
 

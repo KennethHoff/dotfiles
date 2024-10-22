@@ -1,10 +1,10 @@
 # Description:
 # This is the firmware configuration for the Dell Laptop (Previously known as "Work Laptop")
 {
-  config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -43,7 +43,10 @@
     users.kennethhoff = {
       isNormalUser = true;
       description = "Kenneth Hoff";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       password = "1234";
     };
     defaultUserShell = pkgs.zsh;
@@ -80,7 +83,7 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   programs = {
@@ -94,11 +97,11 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
       gamescopeSession.enable = true;
-      extraCompatPackages = with pkgs; [proton-ge-bin];
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
   };
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   security.rtkit.enable = true;
   services.pipewire = {

@@ -1,9 +1,9 @@
 {
   lib,
-  pkgs,
   config,
   ...
-}: {
+}:
+{
   options = {
     dotfiles = lib.mkOption {
       type = lib.types.path;

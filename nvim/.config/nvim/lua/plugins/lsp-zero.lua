@@ -32,5 +32,14 @@ return {
 		})
 
 		lspconfig.ts_ls.setup({})
+		lspconfig.nil_ls.setup({
+			settings = {
+				["nil"] = {
+					formatting = {
+						command = { "nixfmt" },
+					},
+				},
+			},
+		})
 	end,
 }

@@ -1,9 +1,8 @@
 {
   pkgs,
-  config,
-  lib,
   ...
-}: {
+}:
+{
   catppuccin.enable = true;
 
   dconf.settings = {
