@@ -4,6 +4,8 @@
 }:
 {
   catppuccin.enable = true;
+  # TODO: Figure out why `pointerCursor` is requires its own configuration, despite `catppuccin.enable` saying it enables _everything_.
+  catppuccin.pointerCursor.enable = true;
 
   dconf.settings = {
     "org/gnome/desktop/background" = {
@@ -12,14 +14,6 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
   };
 
   # gtk = {
