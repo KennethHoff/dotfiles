@@ -4,8 +4,6 @@
 }:
 {
   home.packages = with pkgs; [
-    # Terminal Simulator used by Hyprland
-    kitty
     # Screenshot Utility made by the Hyprland team.
     grimblast
   ];

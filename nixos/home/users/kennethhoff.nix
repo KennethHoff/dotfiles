@@ -24,11 +24,7 @@
     # Miscellaneous packages
     packages = with pkgs; [
       spotify
-      lazygit
-      firefox
-      gh # GitHub CLI
       slack
-      wl-clipboard
       vesktop # Custom Discord App with Improved Desktop (and `Vencord` pre-installed, which - among other things - adds support for plugins)
     ];
   };
