@@ -21,3 +21,19 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
 10. Rebuild your system, by calling `sudo nixos-rebuild switch --flake ~/dotfiles/nixos#nixos-media`. This will take a few minutes.
 11. Reboot the computer by calling `reboot`. This is the final step.
 
+### Future Plans
+
+- [x] Remote Desktop (Connect to host remotely)
+  - [x] With SSH Tunneling (for security).
+
+- [ ] Safely store secrets, like host password.
+    This is de-facto mandatory for allowing SSH tunneling on the internet; Currently it's only accessible on the local network.
+
+- [ ] [Impermanence](https://nixos.wiki/wiki/Impermanence) (Wipe root directory every time you reboot)
+
+- [ ] Wake-On-Lan (Start host over the internet)
+
+- [ ] Support for norwegian `Æ`, `Ø`, and `Å` (and their lowercase variants)
+
+- [ ] Split home-manager directory into smaller chunks to allow for host-specific applications.
+
