@@ -35,7 +35,7 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
 
 - [ ] Support for norwegian `Æ`, `Ø`, and `Å` (and their lowercase variants)
 
-- [ ] Split home-manager directory into smaller chunks to allow for host-specific applications.
+- [x] Split home-manager directory into smaller chunks to allow for host-specific applications.
 
 - [ ] Improved Audio management
    - [ ] Audio Router (Route specific apps to specific output channels; {Spotify -> User}, {Discord -> User}, {Game -> Recording & User}

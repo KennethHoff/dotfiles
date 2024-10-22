@@ -35,7 +35,7 @@
                 imports = [
                   # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
                   catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff.nix
+                  ./home/users/kennethhoff/nixos-desktop.nix
                 ];
               };
             }
@@ -56,7 +56,7 @@
                 imports = [
                   # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
                   catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff.nix
+                  ./home/users/kennethhoff/nixos-media.nix
                 ];
               };
             }
@@ -77,7 +77,7 @@
                 imports = [
                   # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
                   catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff.nix
+                  ./home/users/kennethhoff/nixos-dell.nix
                 ];
               };
             }
