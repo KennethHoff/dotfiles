@@ -12,7 +12,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       home-manager,
       catppuccin,
@@ -23,7 +23,6 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
             ./hosts/nixos-desktop/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -31,20 +30,16 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-backup";
-              home-manager.users.kennethhoff = {
-                imports = [
-                  # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
-                  catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff/nixos-desktop.nix
-                ];
-              };
+              home-manager.users.kennethhoff.imports = [
+                catppuccin.homeManagerModules.catppuccin
+                ./home/users/kennethhoff/nixos-desktop.nix
+              ];
             }
           ];
         };
         nixos-media = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
             ./hosts/nixos-media/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -52,20 +47,16 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-backup";
-              home-manager.users.kennethhoff = {
-                imports = [
-                  # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
-                  catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff/nixos-media.nix
-                ];
-              };
+              home-manager.users.kennethhoff.imports = [
+                catppuccin.homeManagerModules.catppuccin
+                ./home/users/kennethhoff/nixos-media.nix
+              ];
             }
           ];
         };
         nixos-dell = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
             ./hosts/nixos-dell/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -73,13 +64,10 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-backup";
-              home-manager.users.kennethhoff = {
-                imports = [
-                  # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
-                  catppuccin.homeManagerModules.catppuccin
-                  ./home/users/kennethhoff/nixos-dell.nix
-                ];
-              };
+              home-manager.users.kennethhoff.imports = [
+                catppuccin.homeManagerModules.catppuccin
+                ./home/users/kennethhoff/nixos-dell.nix
+              ];
             }
           ];
         };
