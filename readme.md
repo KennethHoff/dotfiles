@@ -45,3 +45,6 @@ Let's say you want to create a new host, `nixos-media`, this can be added in the
    - While it doesn't support _everything_ that NixOS in its entirety does, it seems to support many. Also, you can install `homebrew` apps through `nix-darwin` so there's seemingly no reason not to just migrate.
    - I imagine it's recommended to factory reset the Mac before doing this, but I know it's technically not required.
 
+- [ ] Simplify bootstrapping of new hosts.
+   - While this is far from complicated/time-consuming, there are obvious improvements that can be made here. Look into if it's possible to create a one-liner that does it all (`curl *** | sh`)
+
