@@ -4,7 +4,8 @@
   inputs = {
     # TODO: Figure out how to move it out of here. Feels out-of-scope for this file.
     catppuccin.url = "github:catppuccin/nix";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # FIXME: Go back to "github:nixos/nixpkgs/nixos-unstable" as soon as possible (turbo was very outdated, but updated 5 hours ago on master.. how lucky)
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
