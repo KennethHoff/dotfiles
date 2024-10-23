@@ -87,6 +87,7 @@
     zsh.enable = true;
     hyprland.enable = true;
     waybar.enable = true;
+    nix-ld.enable = true;
 
     steam = {
       enable = true;
