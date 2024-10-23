@@ -19,8 +19,9 @@
   };
   programs.rofi.enable = true;
 
+  # FIXME: Figure out why `hyprlock` just freezes the screen after coming back from `hypridle`(?)
   programs.hyprlock = {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         disable_loading_bar = true;
@@ -65,10 +66,11 @@
       };
 
       listener = [
-        {
-          timeout = 900;
-          on-timeout = "hyprlock";
-        }
+        # FIXME: Figure out why `hyprlock` just freezes the screen after coming back from `hypridle`(?)
+        # {
+        #   timeout = 900;
+        #   on-timeout = "hyprlock";
+        # }
         {
           timeout = 1200;
           on-timeout = "systemctl suspend";
