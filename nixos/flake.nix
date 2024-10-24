@@ -25,8 +25,9 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-desktop/configuration.nix
-            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            catppuccin.nixosModules.catppuccin
+            ./hosts/nixos-desktop/disko.nix
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
