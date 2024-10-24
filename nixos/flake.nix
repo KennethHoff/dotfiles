@@ -6,6 +6,13 @@
     catppuccin.url = "github:catppuccin/nix";
     # FIXME: Go back to "github:nixos/nixpkgs/nixos-unstable" as soon as possible (turbo was very outdated, but updated 5 hours ago on master.. how lucky)
     nixpkgs.url = "github:nixos/nixpkgs/master";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    impermanence.url = "github:nix-community/impermanence";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +24,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      disko,
       ...
     }:
     {
@@ -26,8 +34,9 @@
           modules = [
             ./hosts/nixos-desktop/configuration.nix
             catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            {
+            disko.nixosModules.default
+	    (import ./hosts/nixos-desktop/disko.nix { device = "dev/nvme0n1"; })
+            (home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-backup";
@@ -35,7 +44,7 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-desktop.nix
               ];
-            }
+            })
           ];
         };
         nixos-media = nixpkgs.lib.nixosSystem {
@@ -43,7 +52,7 @@
           modules = [
             ./hosts/nixos-media/configuration.nix
             catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
+            (home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -52,7 +61,7 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-media.nix
               ];
-            }
+            })
           ];
         };
         nixos-dell = nixpkgs.lib.nixosSystem {
@@ -60,7 +69,7 @@
           modules = [
             ./hosts/nixos-dell/configuration.nix
             catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
+            (home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -69,7 +78,7 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-dell.nix
               ];
-            }
+            })
           ];
         };
       };
