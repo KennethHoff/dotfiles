@@ -1,15 +1,15 @@
 # Description:
 # This is the firmware configuration for the Dell Laptop (Previously known as "Work Laptop")
 {
-lib,
+  lib,
   pkgs,
   ...
 }:
 {
-    imports = [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
     (import ./disko.nix { device = "/dev/nvme0n1"; })
-    ];
+  ];
   nix = {
     package = pkgs.nixVersions.git;
     extraOptions = ''

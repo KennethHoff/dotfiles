@@ -32,11 +32,12 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixos-desktop/configuration.nix
-            catppuccin.nixosModules.catppuccin
             disko.nixosModules.default
-	    (import ./hosts/nixos-desktop/disko.nix { device = "dev/nvme0n1"; })
-            (home-manager.nixosModules.home-manager {
+            (import ./hosts/nixos-desktop/disko.nix { device = "dev/nvme0n1"; })
+            ./hosts/nixos-desktop/configuration.nix
+            home-manager.nixosModules.home-manager
+            catppuccin.nixosModules.catppuccin
+            {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-backup";
@@ -44,15 +45,15 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-desktop.nix
               ];
-            })
+            }
           ];
         };
         nixos-media = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-media/configuration.nix
+            home-manager.nixosModules.home-manager
             catppuccin.nixosModules.catppuccin
-            (home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -61,15 +62,15 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-media.nix
               ];
-            })
+            }
           ];
         };
         nixos-dell = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-dell/configuration.nix
+            home-manager.nixosModules.home-manager
             catppuccin.nixosModules.catppuccin
-            (home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -78,7 +79,7 @@
                 catppuccin.homeManagerModules.catppuccin
                 ./home/users/kennethhoff/nixos-dell.nix
               ];
-            })
+            }
           ];
         };
       };
