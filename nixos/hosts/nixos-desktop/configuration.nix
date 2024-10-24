@@ -17,7 +17,35 @@
     '';
   };
 
-  # Impermanence stuff
+  # <Impermanence>
+  fileSystems."/persist".neededForBoot = true;
+  environment.persistence."/persist/system" = {
+    hideMounts = true;
+    directories = [
+      "/home/kennethhoff/dotfiles"
+      "/var/log"
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/etc/NetworkManager/system-connections"
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
+    ];
+    files = [
+      "/etc/machine-id"
+      {
+        file = "/var/keys/secret_file";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+    ];
+  };
+
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
     mount /dev/root_vg/root /btrfs_tmp
@@ -42,6 +70,7 @@
     btrfs subvolume create /btrfs_tmp/root
     umount /btrfs_tmp
   '';
+  # </Impermanence>
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
