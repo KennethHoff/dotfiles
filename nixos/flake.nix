@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -17,6 +21,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      disko,
       ...
     }:
     {
@@ -27,6 +32,7 @@
             ./hosts/nixos-desktop/configuration.nix
             home-manager.nixosModules.home-manager
             catppuccin.nixosModules.catppuccin
+            disko.nixosModules.disko
             ./hosts/nixos-desktop/disko.nix
             {
               home-manager.useGlobalPkgs = true;
