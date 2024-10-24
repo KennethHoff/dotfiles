@@ -25,6 +25,7 @@
       home-manager,
       catppuccin,
       disko,
+      impermanence,
       ...
     }:
     {
@@ -33,7 +34,7 @@
           system = "x86_64-linux";
           modules = [
             disko.nixosModules.default
-            (import ./hosts/nixos-desktop/disko.nix { device = "dev/nvme0n1"; })
+            impermanence.nixosModules.impermanence
             ./hosts/nixos-desktop/configuration.nix
             home-manager.nixosModules.home-manager
             catppuccin.nixosModules.catppuccin
