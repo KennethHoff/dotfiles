@@ -38,8 +38,10 @@
 
   services.upower.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
+    # FIXME: Do not hardcode the root password.
+    users.root.password = "12345";
+
     users.kennethhoff = {
       isNormalUser = true;
       description = "Kenneth Hoff";
@@ -47,7 +49,9 @@
         "networkmanager"
         "wheel"
       ];
+      # FIXME: Do not hardcode the user password.
       password = "1234";
+      # hashedPassword = "$6$Uz9xlJviKpV7oe3D$m7cDxI7ryyaIrCvqP3vuu77yRH8IWJdjCJ09a8gZWWCvlUKMVdiLpBPvrXSflLDTbJX11dUFG5oPK1gg4YGOJ1";
     };
     defaultUserShell = pkgs.zsh;
   };
